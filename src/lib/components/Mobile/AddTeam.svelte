@@ -52,6 +52,11 @@
 		margin-top: 1rem;
 	}
 
+	button:hover {
+		cursor: pointer;
+		opacity: 0.75;
+	}
+
 	.active {
 		opacity: 1;
 		transform: translateY(-20px);
