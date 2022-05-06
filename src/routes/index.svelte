@@ -60,12 +60,11 @@
 		height: 7000px;
 	}
 
-	#second-section .pocket-fg {
+	#second-section :is(.pocket-fg, .pocket-bg) {
 		position: absolute;
 		left: 0;
-		top: -690px;
+		top: -695px;
 		width: 100vw;
-		/* background-color: red; */
 	}
 
 	#second-section .pocket-fg img {
@@ -73,12 +72,7 @@
 	}
 
 	#second-section .pocket-bg {
-		position: absolute;
-		left: 0;
-		top: -695px;
-		width: 100vw;
 		z-index: 1000;
-		/* background-color: red; */
 	}
 
 	#second-section .pocket-bg img {
