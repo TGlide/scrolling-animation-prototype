@@ -1,38 +1,45 @@
 <script>
-	import { switchTheme } from '$lib/utils/theme';
+	import Mobile from '$lib/components/Mobile/index.svelte';
 </script>
 
 <section class="container">
-	<h1>Index page</h1>
-	<button on:click={switchTheme}>Switch theme</button>
+	<div id="screen">
+		<div />
+		<div />
+		<div />
+		<div />
+	</div>
+	<Mobile />
 </section>
 
 <style>
 	section {
-		--btn-bg: var(--palette-grey-90);
-		--btn-bg-hover: var(--palette-grey-80);
+		background-color: #f0f0f0;
+		min-height: 1000vh;
 	}
 
-	:global([data-theme='dark']) section {
-		--btn-bg: var(--palette-grey-20);
-		--btn-bg-hover: var(--palette-grey-30);
+	#screen {
+		position: absolute;
+		width: 100%;
+		border: 1px solid var(--palette-grey-90);
+		border-radius: 1rem;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: repeat(2, 250px);
+		gap: 2rem;
+		padding: 1rem;
 	}
 
-	h1 {
-		font-family: var(--ff-display);
-		font-size: 3rem;
+	#screen div {
+		background-color: var(--palette-grey-90);
+		border-radius: 1rem;
 	}
 
-	button {
-		background-color: var(--btn-bg);
-		border-radius: var(--radii-sm);
-
-		padding: 0.75rem 1rem;
-		margin-top: 1rem;
+	#screen div:nth-child(1) {
+		background-color: var(--palette-green-30);
 	}
 
-	button:hover {
-		cursor: pointer;
-		background-color: var(--btn-bg-hover);
+	#screen div:nth-child(2) {
+		background-color: var(--palette-purple-60);
 	}
 </style>

@@ -20,6 +20,12 @@
 	--radii-lg: 1rem;
 	--radii-full: 9999px;
 
+	/* ---------- */
+	/* Box Shadow */
+	/* ---------- */
+	--shadow: 0px 16px 24px rgba(0, 0, 0, 0.06), 0px 2px 6px rgba(0, 0, 0, 0.04),
+		0px 0px 1px rgba(0, 0, 0, 0.04);
+
 	/* ------- */
 	/* Palette */
 	/* ------- */
@@ -79,7 +85,7 @@
 	--palette-red-100: hsla(var(--palette-red-100-hsl), 100%);
 
 	/* Green */
-	--base-green: 133.26, 55%;
+	--base-green: 176.84210526315792, 50%;
 	--palette-green-10-hsl: var(--base-green), 10%;
 	--palette-green-10: hsla(var(--palette-green-10-hsl), 100%);
 	--palette-green-20-hsl: var(--base-green), 20%;
@@ -127,7 +133,7 @@
 	--palette-blue-100: hsla(var(--palette-blue-100-hsl), 100%);
 
 	/* Purple */
-	--base-purple: 263, 100%;
+	--base-purple: 259.8675496688742, 75%;
 	--palette-purple-10-hsl: var(--base-purple), 10%;
 	--palette-purple-10: hsla(var(--palette-purple-10-hsl), 100%);
 	--palette-purple-20-hsl: var(--base-purple), 20%;
