@@ -1,41 +1,51 @@
 <script lang="ts">
+	import { scrollStore } from '$lib/store';
+	import { getStage } from '$lib/utils/landing';
 	import AddTeam from './AddTeam.svelte';
 
-	let scroll = 0;
-	const onScroll = (e: UIEvent & { currentTarget: EventTarget & Window }) => {
-		scroll = e.currentTarget.scrollY;
-	};
-
-	$: stage2 = scroll > 600;
+	$: stage = getStage($scrollStore);
 </script>
 
-<svelte:window on:scroll={onScroll} />
-
-<div id="mobile" class:stage-2={stage2}>
+<div id="mobile" class:stage-2={stage === 2} class:stage-3={stage === 3}>
 	<header>
 		<span>9:41</span>
-		<span>{scroll} Vodafone</span>
+		<span>{$scrollStore} Vodafone</span>
 	</header>
 	<h1>Hello Ann</h1>
 	<h2>Welcome back!</h2>
 	<div class="card green" />
 	<div class="card purple" />
 	<div class="card" />
-	<AddTeam active={stage2} />
+	<div class="bottom" />
+	<AddTeam />
 </div>
 
 <style>
 	#mobile {
-		position: sticky;
-		top: 70px;
+		display: flex;
+		flex-direction: column;
+
+		position: absolute;
+		top: 2rem;
 		left: 70%;
 
-		background-color: var(--white);
+		background-color: #fcfaf2;
 		border-radius: 1rem;
 		width: 300px;
+		min-height: 700px;
 		padding: 1rem;
 
-		transition: transform 1.5s ease;
+		--duration: 1.5s;
+		transition: transform var(--duration) ease;
+	}
+
+	.bottom {
+		align-self: center;
+		margin-top: auto;
+		width: 120px;
+		height: 6px;
+		border-radius: 1rem;
+		background-color: var(--black);
 	}
 
 	#mobile header {
@@ -75,7 +85,12 @@
 	}
 
 	#mobile.stage-2 {
-		transform: translateX(-200px) translateY(30px) rotateX(15deg) rotateY(20deg) rotateZ(5deg);
+		transform: translateX(-200px) translateY(30px) rotateX(10deg) rotateY(-20deg) rotateZ(5deg);
+	}
+
+	#mobile.stage-3 {
+		--duration: 1.5s;
+		transform: translateX(-635px) translateY(30px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
 	}
 
 	#mobile.stage-2 .card {

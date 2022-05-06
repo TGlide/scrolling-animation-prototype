@@ -1,9 +1,11 @@
 <script lang="ts">
-	export let active = false;
 	import person from '$lib/assets/person-1.png';
+	import { scrollStore } from '$lib/store';
+	import { getStage } from '$lib/utils/landing';
+	$: stage = getStage($scrollStore);
 </script>
 
-<div class="add-team" class:active>
+<div class="add-team" class:active={stage === 2}>
 	<h3>Add your team</h3>
 	<h1>From the tools connected or manually.</h1>
 	<button>Add people</button>
